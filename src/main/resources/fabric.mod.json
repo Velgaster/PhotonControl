@@ -21,12 +21,14 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "io.github.itsilya.photoncontrol.PhotonControl::init"
+    "server": [
+      "io.github.itsilya.photoncontrol.mod.ServerPhotonControl"
+    ],
+    "client": [
+      "io.github.itsilya.photoncontrol.mod.ClientPhotonControl"
     ]
   },
   "mixins": [
-    "photon_control.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.8.7",

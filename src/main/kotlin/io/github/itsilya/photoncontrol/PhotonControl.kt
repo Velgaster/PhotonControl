@@ -1,13 +1,24 @@
 package io.github.itsilya.photoncontrol
 
-// For support join https://discord.gg/v6v4pMv
+import net.minecraft.server.MinecraftServer
+import net.minecraft.server.world.ServerWorld
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.ChunkPos
+import org.apache.logging.log4j.Logger
 
-@Suppress("unused")
-fun init() {
-    // This code runs as soon as Minecraft is in a mod-load-ready state.
-    // However, some things (like resources) may still be uninitialized.
-    // Proceed with mild caution.
+interface PhotonControl {
+    val logger: Logger
+    val server: MinecraftServer
+    val isClient: Boolean
 
-    println("Hello Fabric world!")
+    companion object {
+        private var implementation: AbstractPhotonControl? = null
+
+        val instance: AbstractPhotonControl
+            get() = implementation ?: throw IllegalStateException("It's too soon to get the instance of PhotonControl")
+    }
+
+    fun init()
+
+    fun setLight(world: ServerWorld, pos: BlockPos, level: Int, chunkPos: ChunkPos)
 }
-
