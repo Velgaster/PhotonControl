@@ -5,7 +5,7 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "io.github.itsilya.photoncontrol.ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

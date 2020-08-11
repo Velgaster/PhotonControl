@@ -1,29 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "photon_control",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Photon Control",
+  "description": "Adds invisible light sources",
   "authors": [
-    "Me!"
+    {
+      "name": "ItsIlya",
+      "minecraft": "bf651b48-7395-4988-ae47-07f8f6b72a22",
+      "contact": {
+        "github": "https://github.com/ItsIlya"
+      }
+    },
+    "Velgaster"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/photoncontrol/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleModKt::init"
+      "io.github.itsilya.photoncontrol.PhotonControl::init"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "photon_control.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.8.7",
@@ -32,6 +35,5 @@
     "minecraft": "1.16.x"
   },
   "suggests": {
-    "flamingo": "*"
   }
 }
