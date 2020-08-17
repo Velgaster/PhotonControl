@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "photon_control",
   "version": "${version}",
-
   "name": "Photon Control",
   "description": "Adds invisible light sources",
   "authors": [
@@ -12,23 +11,18 @@
       "contact": {
         "github": "https://github.com/ItsIlya"
       }
-    },
-    "Velgaster"
+    }
   ],
-
   "license": "MIT",
   "icon": "assets/photoncontrol/icon.png",
-
   "environment": "*",
   "entrypoints": {
-    "server": [
-      "io.github.itsilya.photoncontrol.mod.ServerPhotonControl"
-    ],
-    "client": [
-      "io.github.itsilya.photoncontrol.mod.ClientPhotonControl"
+    "main": [
+      "io.github.itsilya.photoncontrol.PhotonControl"
     ]
   },
   "mixins": [
+    "photon_control.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.8.7",

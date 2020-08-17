@@ -1,8 +1,9 @@
 {
   "required": true,
-  "package": "io.github.itsilya.photoncontrol.mixin",
+  "package": "io.github.itsilya.photoncontrol.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "LightingProviderAccessor"
   ],
   "client": [
   ],

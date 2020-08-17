@@ -1,24 +1,19 @@
 package io.github.itsilya.photoncontrol
 
-import net.minecraft.server.MinecraftServer
-import net.minecraft.server.world.ServerWorld
-import net.minecraft.util.math.BlockPos
-import net.minecraft.util.math.ChunkPos
-import org.apache.logging.log4j.Logger
+import io.github.itsilya.photoncontrol.command.PhotonControlCommand
+import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback
+import net.minecraft.SharedConstants
 
-interface PhotonControl {
-    val logger: Logger
-    val server: MinecraftServer
-    val isClient: Boolean
+class PhotonControl : ModInitializer {
 
-    companion object {
-        private var implementation: AbstractPhotonControl? = null
+    override fun onInitialize() {
 
-        val instance: AbstractPhotonControl
-            get() = implementation ?: throw IllegalStateException("It's too soon to get the instance of PhotonControl")
+        SharedConstants.isDevelopment = true
+
+        CommandRegistrationCallback.EVENT.register(CommandRegistrationCallback { dispatcher, _ ->
+            PhotonControlCommand(dispatcher)
+        })
     }
 
-    fun init()
-
-    fun setLight(world: ServerWorld, pos: BlockPos, level: Int, chunkPos: ChunkPos)
 }
