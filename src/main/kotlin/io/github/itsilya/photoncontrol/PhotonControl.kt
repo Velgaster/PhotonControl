@@ -14,6 +14,7 @@ class PhotonControl : ModInitializer {
         CommandRegistrationCallback.EVENT.register(CommandRegistrationCallback { dispatcher, _ ->
             PhotonControlCommand(dispatcher)
         })
+
     }
 
 }
