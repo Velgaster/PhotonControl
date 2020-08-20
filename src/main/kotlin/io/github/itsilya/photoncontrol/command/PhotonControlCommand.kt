@@ -21,8 +21,8 @@ class PhotonControlCommand(dispatcher: CommandDispatcher<ServerCommandSource>) {
     init {
         val builder = CommandManager.literal("pc")
         val commandMap = mapOf<String, (CommandContext<ServerCommandSource>)->Int >(
-                "set" to ::setlight,
-                "update" to ::updateclient
+                "set" to ::setLight,
+                "update" to ::updateClient
         )
         commandMap.forEach{
             builder.then(CommandManager.literal(it.key).executes(it.value))
@@ -31,7 +31,7 @@ class PhotonControlCommand(dispatcher: CommandDispatcher<ServerCommandSource>) {
     }
 
 
-    private fun updateclient(ctx: CommandContext<ServerCommandSource>): Int {
+    private fun updateClient(ctx: CommandContext<ServerCommandSource>): Int {
         val player = ctx.source.player
         val world: ServerWorld = player.serverWorld
         val pos = player.blockPos
@@ -42,7 +42,7 @@ class PhotonControlCommand(dispatcher: CommandDispatcher<ServerCommandSource>) {
         return 1
     }
 
-    private fun setlight(ctx: CommandContext<ServerCommandSource>): Int {
+    private fun setLight(ctx: CommandContext<ServerCommandSource>): Int {
         val player = ctx.source.player
         val world: ServerWorld = player.serverWorld
         val pos = player.blockPos
